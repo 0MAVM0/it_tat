@@ -44,3 +44,10 @@ class Portfolio(models.Model):
 
     def __str__(self) -> str:
         return f"{self.title} - {self.mentor.full_name}"
+
+
+class LessonsVideo(models.Model):
+    title = models.CharField(max_length=255, null=False, blank=False)
+    tutor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    video = models.FileField(upload_to='lessons_videos/', null=False, blank=False)
