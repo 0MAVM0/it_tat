@@ -56,6 +56,15 @@ class LessonsVideo(models.Model):
 class Registration(models.Model):
     full_name = models.CharField(max_length=150, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return f"{self.full_name}"
+
+
+class ProgrammeRequest(models.Model):
+    full_name = models.CharField(max_length=150, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
+
+    def __str__(self) -> str:
+        return self.full_name
