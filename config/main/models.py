@@ -18,8 +18,8 @@ class Mentor(models.Model):
     full_name = models.CharField(max_length=255, null=False, blank=False)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     img = models.ImageField(upload_to='mentors/', null=True, blank=True)
-    job_experience = models.CharField(max_length=20, null=False, blank=False)
-    graduated_students = models.CharField(max_length=20, null=True,  blank=True)
+    job_experience = models.IntegerField(null=False, blank=False)
+    graduated_students = models.IntegerField(null=True,  blank=True)
     description = models.TextField()
 
     def __str__(self) -> str:
