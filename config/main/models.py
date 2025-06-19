@@ -24,3 +24,12 @@ class Mentor(models.Model):
 
     def __str__(self) -> str:
         return self.full_name
+
+
+class Feedback(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=255, null=False, blank=False)
+    video = models.FileField(upload_to='feedbacks/', null=True, blank=True)
+
+    def __str__(self) -> str:
+        return f"{self.full_name} - {self.course.name}"
