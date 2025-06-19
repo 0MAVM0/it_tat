@@ -33,3 +33,14 @@ class Feedback(models.Model):
 
     def __str__(self) -> str:
         return f"{self.full_name} - {self.course.name}"
+
+
+class Portfolio(models.Model):
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50, null=False, blank=False)
+    description = models.TextField()
+    img = models.ImageField(upload_to='portfolio/', null=True, blank=True)
+    link = models.URLField(max_length=255, null=True, blank=True)
+
+    def __str__(self) -> str:
+        return f"{self.title} - {self.mentor.full_name}"
