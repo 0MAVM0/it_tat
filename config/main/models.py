@@ -51,3 +51,11 @@ class LessonsVideo(models.Model):
     tutor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     video = models.FileField(upload_to='lessons_videos/', null=False, blank=False)
+
+
+class Registration(models.Model):
+    full_name = models.CharField(max_length=150, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
+
+    def __str__(self) -> str:
+        return f"{self.full_name}"
