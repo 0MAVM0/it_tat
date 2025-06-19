@@ -1,6 +1,11 @@
 from django.db import models
 
 
+class Technologies(models.Model):
+    name = models.CharField(max_length=255, null=False, blank=False)
+    img = models.ImageField(upload_to='technologies/', null=True, blank=True)
+
+
 class Course(models.Model):
     name = models.CharField(max_length=255, null=False, blank=False)
     img = models.ImageField(upload_to='courses/', null=True, blank=True)
@@ -9,6 +14,7 @@ class Course(models.Model):
     duration = models.CharField(max_length=15, null=False, blank=False)      # 2 soat davomiyligi
     times_a_week = models.CharField(max_length=15, null=False, blank=False)  # 3 marta bir haftada
     price = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
+    technology = models.ForeignKey(Technologies, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.name
