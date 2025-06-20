@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Technologies(models.Model):
+class Technology(models.Model):
     name = models.CharField(max_length=255, null=False, blank=False)
     img = models.ImageField(upload_to='technologies/', null=True, blank=True)
 
@@ -19,7 +19,7 @@ class Course(models.Model):
     duration_of_a_lesson = models.CharField(max_length=15, null=False, blank=False)
     times_a_week = models.CharField(max_length=15, null=False, blank=False)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
-    technology = models.ForeignKey(Technologies, on_delete=models.CASCADE)
+    technology = models.ForeignKey(Technology, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return self.name
@@ -67,7 +67,7 @@ class LessonsVideo(models.Model):
         return self.title
 
 
-class ProgrammeRequest(models.Model):
+class ProgramRequest(models.Model):
     full_name = models.CharField(max_length=150, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
 
