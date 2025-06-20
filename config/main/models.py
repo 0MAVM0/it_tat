@@ -81,3 +81,17 @@ class FAQ(models.Model):
 
     def __str__(self) -> str:
         return self.question
+
+
+class WorldStatistics(models.Model):
+    course = models.OneToOneField(Course, on_delete=models.CASCADE, related_name='world_statistics')
+    junior_salary = models.DecimalField(max_digits=10, decimal_places=2)
+    middle_salary = models.DecimalField(max_digits=10, decimal_places=2)
+    senior_salary = models.DecimalField(max_digits=10, decimal_places=2)
+
+
+class UzbStatistics(models.Model):
+    course = models.OneToOneField(Course, on_delete=models.CASCADE, related_name='uzb_statistics')
+    junior_salary = models.DecimalField(max_digits=10, decimal_places=2)
+    middle_salary = models.DecimalField(max_digits=10, decimal_places=2)
+    senior_salary = models.DecimalField(max_digits=10, decimal_places=2)
