@@ -82,3 +82,11 @@ class ProgrammeRequest(models.Model):
 
     def __str__(self) -> str:
         return self.full_name
+
+
+class FAQ(models.Model):
+    question = models.CharField(max_length=255, null=False, blank=False)
+    responce = models.TextField(null=False, blank=False)
+
+    def __str__(self) -> str:
+        return self.question
