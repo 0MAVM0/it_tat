@@ -20,12 +20,12 @@ class Course(models.Model):
     times_a_week = models.CharField(max_length=15)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     technology = models.ForeignKey(Technology, on_delete=models.CASCADE)
-    junior_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    middle_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    senior_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    junior_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    middle_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    senior_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    uzb_junior_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    uzb_middle_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    uzb_senior_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    world_junior_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    world_middle_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    world_senior_salary = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name
